@@ -1,9 +1,7 @@
 import { createContext, useState, useContext } from "react";
 
-// create context
 const ProductContext = createContext();
 
-// provider component
 export const ProductProvider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -14,5 +12,4 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
-// custom hook for easy use
 export const useProduct = () => useContext(ProductContext);

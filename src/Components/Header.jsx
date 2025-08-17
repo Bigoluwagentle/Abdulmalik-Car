@@ -10,6 +10,8 @@ import Pickup from "../img/pickup.jpg";
 import Sedan from "../img/sedan.jpg";
 import Suv from "../img/suv.jpg";
 import Wagon from "../img/wagon.jpg";
+import Hamburger from "../img/icon-hamburger.svg";
+import Close from "../img/icon-close.svg";
 function Header(){
     const navigate = useNavigate();
   const { setSelectedProduct } = useProduct();
@@ -84,13 +86,45 @@ function Header(){
     setSelectedProduct(product);
     navigate("/Buy");
   };
-
-        
+  function Ham(){
+    document.querySelector("#mobile").style.transform = "translateX(0)";
+    // document.querySelector("#mobile").style.display = "block";
+  }
+  function close(){
+    document.querySelector("#mobile").style.transform = "translateX(500px)";
+  }
+  {
+    const mobileDelete = document.querySelectorAll(".mobile .go > a");
+    mobileDelete.forEach(item => {
+        item.onclick = function(){
+            document.querySelector("#mobile").style.transform = "translateX(500px)";
+        }
+    });
+  }
     return(
         <div id="header">
+            <div id="mobile">
+                <div className="mobile">
+                    <nav>
+                        <h2>Car Dealer</h2>
+                        <img src={Close} onClick={close} alt="" />
+                    </nav>
+                    <div className="go">
+                        <a href="#">HOME</a>
+                        <a href="#service">SERVICES</a>
+                        <a href="#fleet">FLEET</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#contact">CONTACT</a>
+                    </div>
+                </div>
+            </div>
             <div className="header">
                 <header>
-                    <h2>Car Dealer</h2>
+                    <div>
+                        <img src={Hamburger} id="hamburger" onClick={Ham} alt="hamburger" />
+                        <h2>Car Dealer</h2>
+                    </div>
+                    
                     <div className="go">
                         <a href="#">HOME</a>
                         <a href="#service">SERVICES</a>
@@ -106,6 +140,7 @@ function Header(){
                         <i class="fa-solid fa-user"></i>
                     </div>
                 </header>
+                
                 <h1>Find Your Dream Car Here!</h1>
             </div>
             <h2 id="service">CAR CATEGORY</h2>
