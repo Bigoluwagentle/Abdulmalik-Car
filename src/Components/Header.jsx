@@ -12,9 +12,10 @@ import Suv from "../img/suv.jpg";
 import Wagon from "../img/wagon.jpg";
 import Hamburger from "../img/icon-hamburger.svg";
 import Close from "../img/icon-close.svg";
+import Tesla from "../img/tesla1.jpg";
 function Header(){
     const navigate = useNavigate();
-  const { setSelectedProduct } = useProduct();
+    const { setSelectedProduct } = useProduct();
 
   const products = [
     {
@@ -74,8 +75,8 @@ function Header(){
         "Four door vehicles offering a balance of comfort, fuel efficiency, and affordability",
     },
     {
-      name: "Coupe",
-      image: Coupe,
+      name: "Tesla",
+      image: Tesla,
       price: "35,000",
       description:
         "Four door vehicles offering a balance of comfort, fuel efficiency, and affordability",
@@ -88,16 +89,15 @@ function Header(){
   };
   function Ham(){
     document.querySelector("#mobile").style.transform = "translateX(0)";
-    // document.querySelector("#mobile").style.display = "block";
   }
   function close(){
-    document.querySelector("#mobile").style.transform = "translateX(500px)";
+    document.querySelector("#mobile").style.transform = "translateX(1500px)";
   }
   {
     const mobileDelete = document.querySelectorAll(".mobile .go > a");
     mobileDelete.forEach(item => {
         item.onclick = function(){
-            document.querySelector("#mobile").style.transform = "translateX(500px)";
+            document.querySelector("#mobile").style.transform = "translateX(1500px)";
         }
     });
   }
@@ -149,10 +149,10 @@ function Header(){
                 <nav key={i}>
                     <img src={p.image} alt={p.name} />
                     <div>
-                    <h4>{p.name}</h4>
-                    <p>{p.description}</p>
-                    <li>${p.price}</li>
-                    <button onClick={() => handleBuy(p)}>Buy</button>
+                        <h4>{p.name}</h4>
+                        <p>{p.description}</p>
+                        <li>${p.price}</li>
+                        <button onClick={() => handleBuy(p)}>Buy</button>
                     </div>
                 </nav>
                 ))}
